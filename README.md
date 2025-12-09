@@ -1,343 +1,207 @@
-# 🎓 VR EDUCATIVO - PROYECTO COMPLETADO ✅
+# VR School - Educational VR Project
 
-**Estado**: Arquitectura 100% Completada  
-**Fecha**: 28 de Noviembre, 2025  
-**Versión**: 1.0  
+Una aplicación educativa inmersiva en realidad virtual desarrollada con **Unity 2022+** y **XR Interaction Toolkit**, diseñada para enseñar lecciones de seguridad en escuelas mediante experiencias interactivas.
+
+## 🎯 Características Principales
+
+### 📍 Lecciones Implementadas
+
+1. **Extinción de Incendios** - Aprende a usar un extintor de forma segura
+   - Mecanismo de rociado realista
+   - Sistema de fuegos múltiples con dificultad progresiva
+   - Feedback de progreso en tiempo real
+
+2. **Lecciones de Terremoto** - Simulación realista de terremotos
+   - Escombros cayendo dinámicamente
+   - Sistema de impactos y daño
+   - Efectos visuales y de audio
+   - Múltiples niveles de dificultad
+
+3. **Sistema de Lobby** - Navegación entre lecciones
+   - Selector de lecciones fácil de usar
+   - Gestión de escenas mediante SimpleLobbyLoader
+
+### ⚙️ Tecnologías
+
+- **Engine**: Unity 2022 LTS
+- **XR Framework**: XR Interaction Toolkit v3.1.1
+- **Sistema de Entrada**: New Input System
+- **UI**: TextMeshPro
+- **Audio**: AudioSource con clips personalizados
+
+## 📦 Requisitos Previos
+
+Antes de importar, asegúrate de tener:
+
+- **Unity 2022 LTS** o superior (https://unity.com/download)
+- **Visual Studio Community** 2019 o superior (para edición de scripts)
+- **Git** instalado (https://git-scm.com)
+- Mínimo **50 GB** de espacio en disco
+- GPU compatible con VR (recomendado)
+
+## 🚀 Instalación
+
+### Paso 1: Clonar el Repositorio
+
+```bash
+git clone https://github.com/Joaquinamz/VRSchool.git
+cd VRSchool
+```
+
+### Paso 2: Abrir en Unity
+
+1. Abre **Unity Hub**
+2. Click en **"Add project from disk"**
+3. Selecciona la carpeta `VRSchool`
+4. Unity importará automáticamente todos los Assets (esto puede tardar 5-10 minutos)
+5. Espera a que termine el proceso de compilación
+
+### Paso 3: Configuración Inicial
+
+Una vez que el proyecto se carga:
+
+1. **Escena de Lobby**:
+   - Abre `Assets/Scenes/LobbyVR.unity`
+   - Esta es la escena inicial
+
+2. **Escenas de Lecciones**:
+   - `Assets/Scenes/FireExtinguisherLesson.unity` - Lección de extinción de incendios
+   - `Assets/Scenes/EarthquakeLesson.unity` - Lección de terremoto
+
+3. **Verificación de Assets**:
+   - Asegúrate de que no haya errores en la consola
+   - Algunos Assets pueden aparecer como "pink" inicialmente (modelo faltante) - esto es normal
+
+## 📂 Estructura del Proyecto
+
+```
+VRSchool/
+├── Assets/
+│   ├── Scenes/                    # Escenas del juego
+│   │   ├── LobbyVR.unity
+│   │   ├── FireExtinguisherLesson.unity
+│   │   └── EarthquakeLesson.unity
+│   ├── Scripts/                   # Scripts C#
+│   │   ├── FireGameManager.cs
+│   │   ├── EarthquakeGameManager.cs
+│   │   ├── NPCProfessor.cs
+│   │   └── ... (más scripts)
+│   ├── Prefabs/                   # Prefabs reutilizables
+│   └── school/                    # Modelos y assets 3D
+├── ProjectSettings/               # Configuración de Unity
+├── Packages/                      # Dependencias (XR Toolkit, etc)
+└── README.md                      # Este archivo
+```
+
+## 🎮 Cómo Usar
+
+### Reproducir el Proyecto
+
+1. En Unity, abre la escena `LobbyVR.unity`
+2. Presiona el botón **Play** (▶) en la parte superior central
+3. Usa los controles para navegar:
+   - **Movimiento**: WASD
+   - **Vista**: Mouse derecho + movimiento
+   - **Interactuar**: Click izquierdo en botones
+
+### Escenas Disponibles
+
+| Escena | Descripción | Controles |
+|--------|-------------|-----------|
+| **LobbyVR** | Menú principal | Botones UI |
+| **FireExtinguisherLesson** | Lección 1: Extintor | Click para apuntar, spray |
+| **EarthquakeLesson** | Lección 2: Terremoto | Movimiento, esquivar escombros |
+
+## 🔧 Scripts Principales
+
+### FireGameManager.cs
+Gestiona el flujo de la lección de extinción de incendios:
+- `StartFirstFirePhase()` - Inicia el primer fuego
+- `StartMultipleFires()` - Inicia múltiples fuegos simultáneos
+- `ShowResults()` - Muestra resultados finales
+
+### EarthquakeGameManager.cs
+Gestiona la simulación de terremoto:
+- `StartEarthquakePhase()` - Inicia el terremoto con escombros
+- `RegisterDebrisHit()` - Registra impactos de escombros
+- `CompleteEarthquake()` - Finaliza la lección
+
+### NPCProfessor.cs
+Sistema de diálogos del instructor:
+- `ShowIntroduction()` - Muestra introducción
+- `OnNextClicked()` - Maneja avance de diálogos
+
+## 🎨 Personalización
+
+### Cambiar Diálogos
+
+En las escenas, edita los campos del script correspondiente:
+- **NPCProfessor** para lección de fuego
+- **EarthquakeProfessor** para lección de terremoto
+
+### Ajustar Dificultad
+
+En **EarthquakeGameManager** puedes modificar:
+```csharp
+spawnRate = 2f;           // Escombros por segundo
+earthquakeDuration = 30f; // Duración del terremoto
+shakeIntensity = 0.5f;    // Intensidad del temblor
+```
+
+### Audio Personalizado
+
+En la escena, asigna archivos de audio en los campos:
+- `earthquakeSound` - Clip de audio para terremoto (recomendado: .mp3)
+
+## ⚙️ Requisitos del Sistema
+
+### Mínimo Recomendado
+- **CPU**: Intel i5-10400 / AMD Ryzen 5 3600
+- **RAM**: 16 GB
+- **GPU**: NVIDIA GTX 1660 / AMD RX 5600XT
+- **Storage**: 100 GB SSD
+- **Resolución**: 1920x1080 @ 60Hz
+
+### VR (Opcional)
+- **Headset**: Meta Quest 2/3, HTC Vive, Valve Index
+- **Configurar en**: Edit → Project Settings → XR Plug-in Management
+
+## 🐛 Troubleshooting
+
+### Problema: Assets aparecen en rosa/magenta
+**Solución**: Assets faltantes - ignore, son recursos opcionales. El juego funciona sin ellos.
+
+### Problema: Botones no responden
+**Solución**: 
+1. Verifica que `EventSystem` existe en la escena
+2. Canvas debe estar en modo `Screen Space - Overlay`
+3. Ejecuta `Assets/UIButtonFixer.cs` si está disponible
+
+### Problema: Scripts muestran errores
+**Solución**: 
+1. Abre `Window → TextMeshPro → Import TMP Essentials`
+2. Espera a que se recompilen los scripts
+3. Si persiste: `Assets → Reimport All`
+
+## 📝 Licencia
+
+Este proyecto es de código abierto bajo licencia MIT. Úsalo libremente para propósitos educativos.
+
+## 👥 Soporte
+
+Para reportar problemas o sugerencias, abre un **Issue** en GitHub:
+https://github.com/Joaquinamz/VRSchool/issues
+
+## 🚀 Próximas Mejoras Planeadas
+
+- [ ] Más lecciones educativas
+- [ ] Soporte mejorado para VR completo
+- [ ] Sistema de puntuación y rankings
+- [ ] Localizaciones (múltiples idiomas)
+- [ ] Optimizaciones de rendimiento
 
 ---
 
-## 🎯 BIENVENIDA
-
-Hola Joaquín, he completado la **arquitectura completa** de tu proyecto VR educativo de seguridad escolar.
-
-Este proyecto incluye:
-- ✅ **10 scripts C# listos para usar**
-- ✅ **6 documentos de guía completa**
-- ✅ **Sistema de máquina de estados**
-- ✅ **Puntuación flexible**
-- ✅ **Código 100% documentado**
-
----
-
-## 📂 EMPEZAR AQUÍ
-
-### 1️⃣ **COMIENZA CON ESTO** (5 minutos)
-Abre y lee: **`RESUMEN_EJECUTIVO.md`**
-
-### 2️⃣ **ENTIENDE LA ARQUITECTURA** (20 minutos)
-Lee: **`PROYECTO_COMPLETO.md`**
-
-### 3️⃣ **PREPÁRATE PARA INTEGRAR** (20 minutos)
-Revisa: **`GUIA_CONFIGURACION_UNITY.md`**
-
-### 4️⃣ **DURANTE LA INTEGRACIÓN**
-Consulta: **`TROUBLESHOOTING.md`** cuando tengas errores
-
----
-
-## 📁 QUÉ HAY AQUÍ
-
-```
-VRDemo/
-│
-├── 📄 README.md (este archivo)
-├── 📋 RESUMEN_EJECUTIVO.md ............. COMIENZA AQUÍ ⭐
-├── 📋 PROYECTO_COMPLETO.md ............. Visión general
-├── 📋 INDICE_COMPLETO.md ............... Índice detallado
-├── 🔧 INTEGRACION_SETUP.md ............. Setup técnico
-├── 👨‍💼 GUIA_CONFIGURACION_UNITY.md ........ Paso a paso
-├── 🐛 TROUBLESHOOTING.md ............... Solución de errores
-│
-└── Assets/
-    ├── 📝 CourseManager.cs ............ Sistema central (singleton)
-    ├── 📝 InstructorController.cs ..... Profesor + diálogos
-    ├── 📝 WorkingExtinguisher.cs ...... Extintor mejorado
-    ├── 📝 FireBehavior.cs ............ Fuego dinámico
-    ├── 📝 FireGameManager.cs ......... Minijuego extintor
-    ├── 📝 ResultsScreen.cs ........... Puntuación
-    ├── 📝 EarthquakeSimulator.cs ..... Temblor
-    ├── 📝 PlayerEarthquakeBehavior.cs  Jugador en sismo
-    ├── 📝 StudentAI.cs .............. NPCs
-    └── 📝 EarthquakeGameManager.cs ... Minijuego sismo
-```
-
----
-
-## 🚀 TU PRÓXIMO PASO
-
-### Esta semana:
-```
-1. Abre RESUMEN_EJECUTIVO.md (5 min)
-2. Abre GUIA_CONFIGURACION_UNITY.md (30 min)
-3. Crea FireExtinguisherLesson.unity (30 min)
-4. Asigna referencias en Inspector (30 min)
-5. Test en Play mode (15 min)
-
-TOTAL: ~2 horas para ver algo funcionando
-```
-
-### Tarea simple para hoy:
-```
-1. Crear escena: FireExtinguisherLesson.unity
-2. Agregar: Profesor (simple cube)
-3. Agregar: Canvas con DialogueText
-4. Agregar: InstructorController.cs
-5. Play mode → Presionar "Siguiente"
-
-Si ves los diálogos avanzar = ¡ÉXITO!
-```
-
----
-
-## 📊 LO QUE TIENE
-
-### Scripts (10 archivos, 1100+ líneas)
-
-| Archivo | Función | Estado |
-|---------|---------|--------|
-| **CourseManager.cs** | Centro de coordinación | ✅ Listo |
-| **InstructorController.cs** | Profesor + diálogos | ✅ Listo |
-| **WorkingExtinguisher.cs** | Extintor mejorado | ✅ Listo |
-| **FireBehavior.cs** | Comportamiento fuego | ✅ Listo |
-| **FireGameManager.cs** | Minijuego extintor | ✅ Listo |
-| **ResultsScreen.cs** | Puntuación | ✅ Listo |
-| **EarthquakeSimulator.cs** | Temblor | ✅ Listo |
-| **PlayerEarthquakeBehavior.cs** | Jugador en sismo | ✅ Listo |
-| **StudentAI.cs** | NPCs | ✅ Listo |
-| **EarthquakeGameManager.cs** | Minijuego sismo | ✅ Listo |
-
-### Documentación (6 documentos)
-
-| Documento | Contenido |
-|-----------|----------|
-| **RESUMEN_EJECUTIVO.md** | Overview rápido - COMIENZA AQUÍ ⭐ |
-| **PROYECTO_COMPLETO.md** | Descripción detallada del sistema |
-| **INDICE_COMPLETO.md** | Índice de todo |
-| **INTEGRACION_SETUP.md** | Configuración técnica |
-| **GUIA_CONFIGURACION_UNITY.md** | Paso a paso en Unity |
-| **TROUBLESHOOTING.md** | 12 errores comunes + soluciones |
-
----
-
-## 🎮 EL PROYECTO EN 2 MINUTOS
-
-### Módulo 1: Extintor de Incendios
-```
-LOBBY
-  ↓
-ESCENA EXTINTOR
-  ├─ Profesor explica (8 diálogos)
-  ├─ Usuario presiona "Siguiente"
-  ├─ Minijuego: Apagar 5 fuegos
-  └─ Resultados: Puntuación
-```
-
-### Módulo 2: Seguridad ante Sismos
-```
-RESULTADOS EXTINTOR
-  ↓
-ESCENA SISMO
-  ├─ Profesor explica (8 diálogos)
-  ├─ Usuario presiona "Siguiente"
-  ├─ Temblor: 8 segundos
-  ├─ Usuario se agacha
-  ├─ Evacuación: 15 segundos
-  ├─ Estudiantes salen ordenadamente
-  └─ Resultados: Puntuación
-```
-
----
-
-## ⚡ CARACTERÍSTICAS
-
-✅ Sistema modular y escalable  
-✅ Máquina de estados clara  
-✅ Puntuación flexible (100+ líneas de código)  
-✅ Eventos y delegates  
-✅ Código 100% comentado  
-✅ Debugging completo  
-✅ Testing facilitado  
-✅ Sin "spaghetti code"  
-
----
-
-## 🔧 REQUISITOS
-
-- **Unity 2022+** (recomendado 2023+)
-- **XR Interaction Toolkit** (ya tienes)
-- **TextMesh Pro** (incluido en Unity)
-- **Meta Quest** o SteamVR (para testing final)
-
----
-
-## 📋 CHECKLIST
-
-- [x] Scripts creados
-- [x] Documentación completada
-- [x] Arquitectura diseñada
-- [x] Sistema de puntuación implementado
-- [x] Eventos configurados
-- [ ] **Integración en Unity** ← TÚ HACES ESTO
-- [ ] Assets 3D
-- [ ] Audio
-- [ ] Testing en VR
-
----
-
-## 💡 CONSEJOS
-
-### Para empezar:
-1. **NO intentes hacerlo todo hoy**
-2. **Lee GUIA_CONFIGURACION_UNITY.md primero**
-3. **Crea escena + prefabs básicos primero**
-4. **Testea después de cada cambio**
-
-### Si te atascas:
-1. **Busca en TROUBLESHOOTING.md** (90% de problemas están ahí)
-2. **Abre Console** (Ctrl+Shift+C)
-3. **Revisa los comentarios** en el código
-4. **Google es tu amigo** (XR Interaction Toolkit + [problema])
-
----
-
-## 📞 ESTRUCTURA DE DOCUMENTOS
-
-### Para Leer:
-```
-1. RESUMEN_EJECUTIVO.md (5 min) ⭐
-   ↓
-2. PROYECTO_COMPLETO.md (20 min)
-   ↓
-3. INDICE_COMPLETO.md (10 min)
-```
-
-### Para Implementar:
-```
-1. GUIA_CONFIGURACION_UNITY.md
-   - Copia los pasos
-   - Sigue exactamente
-   - Test en Play mode
-```
-
-### Para Debugging:
-```
-1. TROUBLESHOOTING.md
-   - Busca tu error
-   - Sigue la solución
-   - Test de nuevo
-```
-
----
-
-## 🎯 MAPA DE RUTA
-
-### Semana 1: Integración
-```
-Días 1-2: Setup escenas y prefabs (GUIA_CONFIGURACION_UNITY.md)
-Días 3-4: Asignar referencias (Inspector)
-Día 5: Testing completo
-```
-
-### Semana 2-3: Assets
-```
-Modelado 3D
-Texturas
-Animaciones
-```
-
-### Semana 4: Audio
-```
-AudioManager.cs
-Efectos sonido
-Diálogos
-```
-
-### Semana 5: Polish
-```
-Balanceo
-Optimización
-Testing VR
-```
-
----
-
-## 🏆 ESTADO ACTUAL
-
-```
-████████████████████████████████ 100% Arquitectura
-████░░░░░░░░░░░░░░░░░░░░░░░░░░░  20% Integración
-█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░   5% Assets
-░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░   0% Audio
-
-TOTAL: 55% Completado
-```
-
----
-
-## ✨ RESUMEN
-
-He transformado tu proyecto de una **lista de 8 tareas** en:
-
-✅ **Sistema profesional** con arquitectura sólida  
-✅ **1100+ líneas de código** limpio y documentado  
-✅ **6 documentos** con guías paso a paso  
-✅ **Código testeable** con debug completo  
-
-**Falta:**
-- 3-4 horas: Integración en Unity
-- 7+ horas: Assets 3D
-- 5 horas: Audio
-
-**Total estimado**: 2-3 semanas de trabajo para versión final.
-
----
-
-## 🚀 ¡LISTO PARA EMPEZAR!
-
-### Acción inmediata:
-1. Abre **RESUMEN_EJECUTIVO.md**
-2. Abre **GUIA_CONFIGURACION_UNITY.md**
-3. Sigue los pasos
-
----
-
-## 📞 SOPORTE
-
-Si tienes dudas:
-1. Busca respuesta en los documentos
-2. Revisa TROUBLESHOOTING.md
-3. Abre Console en Unity para errores
-4. Lee los comentarios en el código
-
----
-
-## 📄 ARCHIVOS IMPORTANTES
-
-| Archivo | Para |
-|---------|------|
-| **RESUMEN_EJECUTIVO.md** | Entender qué tienes ⭐ |
-| **GUIA_CONFIGURACION_UNITY.md** | Empezar a trabajar |
-| **TROUBLESHOOTING.md** | Cuando hay errores |
-| **PROYECTO_COMPLETO.md** | Entender la arquitectura |
-| **INDICE_COMPLETO.md** | Encontrar todo |
-
----
-
-## 🎓 CONCLUSIÓN
-
-Tu proyecto tiene:
-- ✅ Código profesional
-- ✅ Sistema escalable
-- ✅ Documentación completa
-- ⏳ Falta integración (tu trabajo)
-
-**¡Adelante con la integración!**
-
----
-
-*Proyecto VR Educativo - Multi-módulo*  
-*Versión: 1.0*  
-*Fecha: 28 de Noviembre, 2025*  
-*Status: Arquitectura 100% ✅*
-
-**¿Listo para empezar?** → Lee **RESUMEN_EJECUTIVO.md** 🚀
+**Última actualización**: Diciembre 2025  
+**Versión**: 1.0.0  
+**Desarrollador**: Joaquin A.
