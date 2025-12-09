@@ -196,13 +196,13 @@ https://github.com/Joaquinamz/VRSchool/issues
 ## 🚀 Próximas Mejoras Planeadas
 
 - [ ] Más lecciones educativas
-- [ ] Soporte mejorado para VR completo
-- [ ] Sistema de puntuación y rankings
+- [ ] Mejoras visuales
+- [ ] Soporte mejorado para VR
 - [ ] Localizaciones (múltiples idiomas)
 - [ ] Optimizaciones de rendimiento
 
 ---
 
 **Última actualización**: Diciembre 2025  
-**Versión**: 1.0.2  
+**Versión**: 1.0.3  
 **Desarrollador**: Joaquin A.
