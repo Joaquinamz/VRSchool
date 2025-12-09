@@ -70,7 +70,8 @@ Una vez que el proyecto se carga:
 
 3. **Verificación de Assets**:
    - Asegúrate de que no haya errores en la consola
-   - Algunos Assets pueden aparecer como "pink" inicialmente (modelo faltante) - esto es normal
+   - Algunos Assets pueden aparecer como "pink" inicialmente (modelo faltante) - de ocurrir,
+   configurar el Shader del material a alguno de los "standard".
 
 ## 📂 Estructura del Proyecto
 
@@ -100,9 +101,9 @@ VRSchool/
 1. En Unity, abre la escena `LobbyVR.unity`
 2. Presiona el botón **Play** (▶) en la parte superior central
 3. Usa los controles para navegar:
-   - **Movimiento**: WASD
-   - **Vista**: Mouse derecho + movimiento
-   - **Interactuar**: Click izquierdo en botones
+   - **Movimiento**: Hand Trackers (Controles VR)
+   - **Vista**: Headset VR
+   - **Interactuar**: Gatillos de Hand Trackers
 
 ### Escenas Disponibles
 
@@ -162,7 +163,7 @@ En la escena, asigna archivos de audio en los campos:
 - **Storage**: 100 GB SSD
 - **Resolución**: 1920x1080 @ 60Hz
 
-### VR (Opcional)
+### VR
 - **Headset**: Meta Quest 2/3, HTC Vive, Valve Index
 - **Configurar en**: Edit → Project Settings → XR Plug-in Management
 
@@ -203,5 +204,5 @@ https://github.com/Joaquinamz/VRSchool/issues
 ---
 
 **Última actualización**: Diciembre 2025  
-**Versión**: 1.0.0  
+**Versión**: 1.0.2  
 **Desarrollador**: Joaquin A.
